@@ -3,6 +3,7 @@ import requests
 from datetime import datetime
 from PIL import Image
 import base64
+from streamlit_autorefresh import st_autorefresh
 
 def get_base64_encoded_image(image_path):
     with open(image_path, "rb") as img_file:
@@ -13,6 +14,7 @@ def get_base64_encoded_image(image_path):
 
 # Page settings
 st.set_page_config(page_title="SkyNow 🌤️", page_icon="☁️", layout="centered")
+st_autorefresh(interval=60000, key="refresh")
 
 bg_image = get_base64_encoded_image("background_converted.jpg")
 st.markdown(
