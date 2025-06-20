@@ -25,12 +25,12 @@ Provides real-time weather updates for any city in the world using the OpenWeath
 ## 📦 Setup Instructions
 
 1. Clone the repo:
-
-```bash
+2. 
 git clone https://github.com/st-devworks/weather-app.git
 cd weather-app
 
-✍️ Author
+---
+## ✍️ Author
 Shikhar Tiwari
 🔗 GitHub
 📧 [tshikhar11@gmail.com]
