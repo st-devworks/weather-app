@@ -4,6 +4,9 @@ from datetime import datetime
 from PIL import Image
 import base64
 from streamlit_autorefresh import st_autorefresh
+from datetime import timedelta
+
+
 
 def get_base64_encoded_image(image_path):
     with open(image_path, "rb") as img_file:
@@ -65,7 +68,10 @@ if city:
 
             with col2:
                 st.markdown(f"**🌬️ Wind Speed:** {data['wind']['speed']} m/s")
-                st.markdown(f"**🕓 Updated at:** {datetime.now().strftime('%I:%M %p')}")
+                utc_dt = datetime.utcfromtimestamp(data["dt"])
+                ist_dt = utc_dt + timedelta(hours=5, minutes=30)
+                st.markdown(f"**🕓 Updated at:** {ist_dt.strftime('%I:%M %p')} (IST)")
+
 
             st.caption("SkyNow ⛅ Powered by OpenWeather API")
 
